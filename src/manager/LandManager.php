@@ -182,13 +182,17 @@ class LandManager{
     }
 
     private function createBB(array $land): AxisAlignedBB{
-        [$x1,, $z1] = array_map('intval', explode(',', $land['pos']['first']));
-        [$x2,, $z2] = array_map('intval', explode(',', $land['pos']['second']));
+		[$x1,, $z1] = array_map('intval', explode(',', $land['pos']['first']));
+		[$x2,, $z2] = array_map('intval', explode(',', $land['pos']['second']));
 
-        return new AxisAlignedBB(
-            min($x1, $x2), 0, min($z1, $z2),
-            max($x1, $x2) + 1, World::Y_MAX, max($z1, $2) + 1
-        );
-    }
+		return new AxisAlignedBB(
+			min($x1, $x2),
+			0,
+			min($z1, $z2),
+			max($x1, $x2) + 1,
+			World::Y_MAX,
+			max($z1, $z2) + 1
+		);
+	}
 }
 
